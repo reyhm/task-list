@@ -9,7 +9,7 @@ export function todoReducer(store = storeInitial, action: Actions): Todo[] {
   switch (action.type) {
     case ADD_TODO:
       const todo = new Todo(action.text);
-      return [...store, todo]
+      return [...store, todo];
 
     default:
       return store;

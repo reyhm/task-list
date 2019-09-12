@@ -10,6 +10,7 @@ import { TodoItemsComponent } from './todo/todo-items/todo-items.component';
 import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 import { environment } from '../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
@@ -27,6 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     TodoFooterComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({ todo: todoReducer }),
