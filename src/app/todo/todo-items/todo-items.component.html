@@ -7,11 +7,12 @@
 
     <label (dblclick)="edit()">{{ todo.text }}</label>
 
-    <button class="destroy"></button>
+    <button class="destroy" (click)="delete()"></button>
   </div>
 
   <input class="edit"
          [formControl]="textInput"
          (blur)="editing = false"
+         (keyup.enter)="saveChange()"
          #textInputSelected>
 </li>

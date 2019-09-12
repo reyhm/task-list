@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChil
 import { Todo } from '../../ngrx/models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
-import { ToggleTodoAction } from '../../ngrx/actions/todo.action';
+import { DeleteTodoAction, EditTodoAction, ToggleTodoAction } from '../../ngrx/actions/todo.action';
 import { AppState } from '../../ngrx/reducers';
 
 
@@ -42,7 +42,19 @@ export class TodoItemsComponent implements OnInit {
   }
 
   saveChange() {
+    this.editing = false;
 
+    if (this.textInput.invalid || this.textInput.value === this.todo.text) {
+      return;
+    }
+
+    const action = new EditTodoAction(this.todo.id, this.textInput.value);
+    this.store.dispatch(action);
+  }
+
+  delete() {
+    const action = new DeleteTodoAction(this.todo.id);
+    this.store.dispatch(action);
   }
 
 }
