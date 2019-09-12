@@ -1,5 +1,7 @@
 <ul class="todo-list">
 
-  <app-todo-items></app-todo-items>
+  <app-todo-items class="mb-5" *ngFor="let item of todo"
+      [todo]="item">
+  </app-todo-items>
 
 </ul>
