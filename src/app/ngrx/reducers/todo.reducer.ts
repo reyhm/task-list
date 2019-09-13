@@ -1,5 +1,5 @@
 import { Todo } from '../models/todo.model';
-import { Actions, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_TODO } from '../actions/todo.action';
+import { Actions, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_ALL_TODO, TOGGLE_TODO } from '../actions/todo.action';
 
 const todo1 = new Todo('Test');
 todo1.done = true;
@@ -14,6 +14,15 @@ export function todoReducer(state = stageInitial, action: Actions): Todo[] {
     case ADD_TODO:
       const todo = new Todo(action.text);
       return [...state, todo];
+
+    // Select All Todo
+    case TOGGLE_ALL_TODO:
+      return state.map(itemEdit => {
+        return {
+          ...itemEdit,
+          done: action.done
+        };
+      });
 
     // Toggle Todo
     case TOGGLE_TODO:
