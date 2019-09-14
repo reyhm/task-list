@@ -1,6 +1,6 @@
 <ul class="todo-list">
 
-  <app-todo-items class="mb-5" *ngFor="let item of todo"
+  <app-todo-items class="mb-5" *ngFor="let item of todo | filterTodo: filter"
       [todo]="item">
   </app-todo-items>
 

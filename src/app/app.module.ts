@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './ngrx/reducers';
+import { FilterTodoPipe } from './pipes/filter-todo.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { appReducers } from './ngrx/reducers';
     TodoListComponent,
     TodoItemsComponent,
     TodoAddComponent,
-    TodoFooterComponent
+    TodoFooterComponent,
+    FilterTodoPipe
   ],
   imports: [
     ReactiveFormsModule,
