@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 
 export const SET_FILTER = '[Filter] Set Filter';
 
-export type filterType = 'todo' | 'pending' | 'complete';
+export type filterType = 'all' | 'pending' | 'complete';
 
 
 export class SetFilterAction implements Action {

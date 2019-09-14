@@ -1,7 +1,7 @@
 import { actions, filterType, SET_FILTER } from '../actions/filter.action';
 
 
-const filterInit: filterType = 'todo';
+const filterInit: filterType = 'all';
 
 export function filterReducer(stage = filterInit, action: actions): filterType {
   switch (action.type) {
