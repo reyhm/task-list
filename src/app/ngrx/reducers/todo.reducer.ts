@@ -1,5 +1,5 @@
 import { Todo } from '../models/todo.model';
-import { Actions, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_ALL_TODO, TOGGLE_TODO } from '../actions/todo.action';
+import { Actions, ADD_TODO, CLEAR_DONE_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_ALL_TODO, TOGGLE_TODO } from '../actions/todo.action';
 
 const todo1 = new Todo('Test');
 todo1.done = true;
@@ -50,6 +50,12 @@ export function todoReducer(state = stageInitial, action: Actions): Todo[] {
     case DELETE_TODO:
       return state.filter(items =>
         (items.id !== action.id)
+      );
+
+    // Clear Done Todo
+    case CLEAR_DONE_TODO:
+      return state.filter(itemEdit =>
+        !itemEdit.done
       );
 
     default:

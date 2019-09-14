@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { filterType, SetFilterAction } from '../../ngrx/actions/filter.action';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../ngrx/reducers';
+import { ClearDoneTodoAction } from '../../ngrx/actions/todo.action';
 
 @Component({
   selector: 'app-todo-footer',
@@ -23,6 +24,11 @@ export class TodoFooterComponent implements OnInit {
 
   setFilter(value: filterType) {
     const action = new SetFilterAction(value);
+    this.store.dispatch(action);
+  }
+
+  clearDone() {
+    const action = new ClearDoneTodoAction();
     this.store.dispatch(action);
   }
 
